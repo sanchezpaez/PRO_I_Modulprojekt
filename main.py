@@ -23,13 +23,14 @@ class Game:
 
     def start_game(self):
         print(f"Welcome to {self.name}!")
-        time.sleep(1)
-        print("What is your name?")
-        answer = input('>')
-        print(f"Alright! Then welcome to {self.name}, {answer}!")
+        time.sleep(2)
+        # print("What is your name?")
+        # answer = input('>')
+        # print(f"Alright! Then welcome to {self.name}, {answer}!")
         time.sleep(1)
         funct.read_file(self.description_file)
         time.sleep(2)
+        # R.Room.get_description(player.location)  #NameError: name 'player' is not defined
 
     @staticmethod
     def exit_game():
@@ -46,20 +47,52 @@ class Game:
         else:
             self.start_game()
 
+    @staticmethod
+    def wrong_command():
+        if response not in player.location.return_actions():
+            print('Wrong command')
+
+    @staticmethod
+    def tiping_mistake():
+        print("Are you sure that is what you are trying to say?")
+
+    def generate_player(self):
+        print("What is your name?")
+        name = input('>')
+        time.sleep(1)
+        print(f"Welcome to {self.name}, {name}!")
+        time.sleep(1)
+        print("How would you describe yourself?")
+        description = input('>')
+        time.sleep(1)
+        print(f"'{description}', I'll remember that.")
+        lives = Game.choose_number()
+        time.sleep(1)
+        print(f"Ok. You will start the game with {lives} lives. If you lose you can choose to play again.")
+        return name, description, lives
+
+    def choose_number():
+        print("Choose a number from 1 to 5?")
+        chosen_number = int(input('>'))
+        if chosen_number in range(1,5):
+            lives = chosen_number
+        else:
+            print("Wrong number")
+            Game.choose_number()
+        return lives
 
 
-
-
-
-
-
-
+# def main():
+#     player_attributes = Game.generate_player()
+#     player = Player(player_attributes[0], player_attributes[1], player_attributes[2], kitchen)
 
 if __name__ == '__main__':
     please_cat_game = Game('Please the cat', 'test.txt')
     please_cat_game.start_game()
     kitchen = R.Room('kitchen', 'kitchen.txt')
-    player = P.Player('Sandra', 'Loving cats since 1982', kitchen)
+    player_attributes = Game.generate_player(please_cat_game)
+    player = P.Player(player_attributes[0], player_attributes[1], player_attributes[2], kitchen)
+    #player = P.Player('Sandra', 'Loving cats since 1982', kitchen)
     garden = R.Room('garden', 'garden.txt')
     bathroom = R.Room('bathroom', 'bathroom.txt')
     bedroom = R.Room('bedroom', 'bedroom.txt')

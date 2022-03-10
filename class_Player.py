@@ -16,14 +16,18 @@ class Animal(Being):
         super().__init__(name, description)
 
 class Player(Being):
-    def __init__(self, name, description, location):
+    def __init__(self, name, description, lives, location):
         super().__init__(name, description)
         self.location = location
+        self.description = description
         self.inventory = []
-        self.lives = 3
+        self.lives = lives
         self.actions_commands = [
             'watch', 'go to', 'grab', 'talk to', 'push',
             'pull', 'open']
+
+    def get_lives(self):
+        return self.lives
 
     def get_inventory(self):
         inventory_list = []
@@ -33,3 +37,9 @@ class Player(Being):
 
     def remove_from_inventory(self, Disposable):
         self.inventory.remove(Disposable)
+
+    def die(self):
+        if self.lives > 0:
+            self.lives -= 1
+        print("That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).")
+        print(f"You have {Player.get_lives()} lives left.")
