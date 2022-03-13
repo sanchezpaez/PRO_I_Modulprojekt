@@ -29,7 +29,7 @@ class Player(Being):
     def get_lives(self):
         return self.lives
 
-    def get_inventory(self):
+    def print_inventory(self):
         inventory_list = []
         for object in self.inventory:
             inventory_list.append(object.get_name())
@@ -38,8 +38,11 @@ class Player(Being):
     def remove_from_inventory(self, Disposable):
         self.inventory.remove(Disposable)
 
+    def add_to_inventory(self, object):
+        self.inventory.append(object)
+
     def die(self):
-        if self.lives > 0:
+        while self.lives > 0:
             self.lives -= 1
         print("That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).")
         print(f"You have {Player.get_lives()} lives left.")

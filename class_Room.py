@@ -6,6 +6,7 @@
 import auxiliary_functions as funct
 #
 import main as m
+import class_Thing as T
 
 import class_Player as P
 
@@ -15,8 +16,8 @@ class Room:
         self.description_file = description_file
         self.connections = {}  # Map of room connections
         self.objects = []  # List of strings
-        self.actions = ['exit game', 'get hint', 'leave room', 'get inventory']  # Recode as dict, so values can be methods
-        # self.actions_dict = {'exit game': Game.exit_game(), 'get hint': self.get_hint(),
+        self.actions = ['get hint', 'leave room']  # Recode as dict, so values can be methods
+        # self.actions_dict = {'exit game': m.Game.exit_game(), 'get hint': self.get_hint(),
         #                  'leave room': Room.leave_room(P.player.location), 'get inventory': P.Player.get_inventory()}
 
     def get_description(self):
@@ -59,9 +60,8 @@ class Room:
         for action in self.actions:
             print(action)
 
-    def get_actions_dict(self):
-        for action in self.actions_dict:
-            print(action)
+    # def get_actions_dict(self):
+    #     print(self.actions_dict.keys())
 
     def add_actions(self, action_list):
         self.actions.extend(action_list)
@@ -74,5 +74,12 @@ class Room:
 
     def return_actions(self):
         return self.actions
+
+    def inspect(self, object): # assert object of class Thing
+        return T.Thing.get_description(object)
+
+    def grab(self, object):
+        print('You can grab this')
+        P.Player.add_to_inventory(self, object)
 
 

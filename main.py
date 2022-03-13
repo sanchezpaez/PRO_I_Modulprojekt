@@ -19,6 +19,9 @@ class Game:
         self.name = name
         self.description_file = description_file
         self.exit_commands = ['exit', 'quit', 'q', 'e', 'bye', 'end', 'finish']
+        # implement other commands and add functions with if statements and remove from room class
+
+
 
 
     def start_game(self):
@@ -56,6 +59,18 @@ class Game:
     def tiping_mistake():
         print("Are you sure that is what you are trying to say?")
 
+    @staticmethod
+    def choose_number():
+        global lives
+        print("Choose a number from 1 to 5?")
+        chosen_number = int(input('>'))
+        if chosen_number in range(1,6):
+            lives = chosen_number
+        else:
+            print("Wrong number")
+            Game.choose_number()
+        return lives
+
     def generate_player(self):
         print("What is your name?")
         name = input('>')
@@ -69,17 +84,10 @@ class Game:
         lives = Game.choose_number()
         time.sleep(1)
         print(f"Ok. You will start the game with {lives} lives. If you lose you can choose to play again.")
+        time.sleep(1)
         return name, description, lives
 
-    def choose_number():
-        print("Choose a number from 1 to 5?")
-        chosen_number = int(input('>'))
-        if chosen_number in range(1,5):
-            lives = chosen_number
-        else:
-            print("Wrong number")
-            Game.choose_number()
-        return lives
+
 
 
 # def main():
@@ -124,21 +132,37 @@ if __name__ == '__main__':
     living_room.add_object('balalaika')
     kitchen.add_actions(['inspect', 'grab'])
 
-    response = ''
-    while response.lower() not in please_cat_game.exit_commands:
-        print('What do you want to do?')
-        time.sleep(2)
-        R.Room.get_actions(player.location)
-        time.sleep(1)
-        response = input('>')
-        print(f"{response} what?")
-        R.Room.get_objects(player.location)
-        response = input('>')
+    while True:
+        response = input('>exit game  get inventory')
+        if response in please_cat_game.exit_commands:
+            please_cat_game.exit_game()
+        elif response == 'get inventory':
+            player.print_inventory()
+        #offer options and ask for input
+        #Player gives input and we call function
 
-        if response not  in R.Room.object_list(player.location):
-            print('Command not valid')
-        else:
-            # MultipleUse.use(response)
-            print("What doesn't kill you makes you stronger.")
-            kitchen.remove_object(mayonnaise)
-            player.inventory += response
+        # print('What do you want to do?')  # Doesn't suggest exit game (bc we moved it from room.actions)
+        # time.sleep(2)
+        # R.Room.get_actions(player.location)
+        # time.sleep(1)
+        # response = input('>')
+        # if response in R.Room.return_actions(player.location):
+        #     print('Good choice')
+        #     if response == 'inspect':
+        #         print(f"{response} what?")
+        #         R.Room.get_objects(player.location)
+        #         response = input('>')
+        #         if response not in R.Room.object_list(player.location):
+        #             Game.wrong_command()
+        #         else:
+        #             print('you can do that')
+        #             #player.location.inspect(response)
+        #             # MultipleUse.use(response)
+        #             print("What doesn't kill you makes you stronger.")
+        #             kitchen.remove_object(mayonnaise)
+        #             player.inventory += response
+        # else:
+        #     Game.wrong_command()
+        #
+        #
+        #
