@@ -18,7 +18,7 @@ class Game:
     def __init__(self, name, description_file):
         self.name = name
         self.description_file = description_file
-        self.exit_commands = ['exit', 'quit', 'q', 'e', 'bye', 'end', 'finish']
+        self.exit_commands = ['exit', 'quit', 'q', 'e', 'bye', 'end', 'finish', 'exit game']
         # implement other commands and add functions with if statements and remove from room class
 
 
@@ -33,7 +33,7 @@ class Game:
         time.sleep(1)
         funct.read_file(self.description_file)
         time.sleep(2)
-        # R.Room.get_description(player.location)  #NameError: name 'player' is not defined
+          #NameError: name 'player' is not defined
 
     @staticmethod
     def exit_game():
@@ -100,7 +100,7 @@ if __name__ == '__main__':
     kitchen = R.Room('kitchen', 'kitchen.txt')
     player_attributes = Game.generate_player(please_cat_game)
     player = P.Player(player_attributes[0], player_attributes[1], player_attributes[2], kitchen)
-    #player = P.Player('Sandra', 'Loving cats since 1982', kitchen)
+    player.location.print_description()
     garden = R.Room('garden', 'garden.txt')
     bathroom = R.Room('bathroom', 'bathroom.txt')
     bedroom = R.Room('bedroom', 'bedroom.txt')
@@ -118,12 +118,14 @@ if __name__ == '__main__':
     hall.connections = {'north': 'nothing', 'south': living_room, 'east': 'nothing', 'west': 'nothing'}
     cellar.connections = {'north': 'nothing', 'south': bathroom, 'east': 'nothing', 'west': living_room}
     neighbours.connections = {'north': 'nothing', 'south': 'nothing', 'east': 'nothing', 'west': bathroom}
-    kitchen.get_description()
+    kitchen.print_description()
     mayonnaise = T.MultipleUse('mayonnaise', "It doesn't look really fresh, but you're starving...",
                              "there you go, just a spoon full of...mayonnaise...", 3)
+    kitchen.add_dict_object(mayonnaise)
     kitchen.add_object(mayonnaise)
     knife = T.Grabbable('knife', "It doesn't look very sharp, but it works.", "zim zam zum")
     kitchen.add_object(knife)
+    kitchen.add_dict_object(knife)
     bathroom.add_object('brush')
     bathroom.add_object('towel')
     bedroom.add_object('bra')
@@ -133,11 +135,20 @@ if __name__ == '__main__':
     kitchen.add_actions(['inspect', 'grab'])
 
     while True:
-        response = input('>exit game  get inventory')
+        response = input('exit game  get inventory  inspect  get hint  leave room\n >')
+        response = response.lower().strip()
         if response in please_cat_game.exit_commands:
             please_cat_game.exit_game()
         elif response == 'get inventory':
             player.print_inventory()
+        elif response == 'get hint':
+            player.location.get_hint()
+        elif response == 'leave room':
+            player.leave_room(player.location)
+        elif response == 'inspect':
+            player.inspect()
+        else:
+            please_cat_game.wrong_command()
         #offer options and ask for input
         #Player gives input and we call function
 

@@ -18,6 +18,9 @@ class Thing:
     def get_description(self):
         return self.description
 
+    def print_description_obj(self):
+        print(self.description)
+
 class Grabbable(Thing):
     def __init__(self, name, description, use_description):
         super().__init__(name, description)

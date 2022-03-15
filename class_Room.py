@@ -17,30 +17,14 @@ class Room:
         self.connections = {}  # Map of room connections
         self.objects = []  # List of strings
         self.actions = ['get hint', 'leave room']  # Recode as dict, so values can be methods
-        # self.actions_dict = {'exit game': m.Game.exit_game(), 'get hint': self.get_hint(),
-        #                  'leave room': Room.leave_room(P.player.location), 'get inventory': P.Player.get_inventory()}
+        self.object_dict = {}
 
-    def get_description(self):
+    def print_description(self):
         funct.read_file(self.description_file)
         #print(f"What do you want to do? {player.actions_commands}")
 
     def get_connections(self):
         return self.connections
-
-    def leave_room(self):
-        print("In which direction do you want to move?: north, south, east, west")
-        answer = input('>')
-        if answer not in Room.get_connections(m.player.location).keys():
-            m.Game.tiping_mistake()
-        else:
-            if answer == 'north':
-                pass
-            elif answer == 'south':
-                pass
-            elif answer == 'east':
-                pass
-            elif answer == 'west':
-                pass
 
     def get_hint(self):
         print("This is a hint.")
@@ -52,13 +36,39 @@ class Room:
         self.objects.remove(object)
         return object
 
-    def get_objects(self):
+    def print_objects(self):
         for object in self.objects:
             print(object.get_name())
 
     def get_actions(self):
         for action in self.actions:
             print(action)
+
+    def get_objects(self):
+        return self.objects
+
+    def get_object_name_list(self):
+        object_name_list = []
+        for object in self.objects:
+            name = object.get_name()
+            object_name_list.append(name)
+        return object_name_list
+
+    def get_object_dict(self):
+        return self.object_dict
+
+    def add_dict_object(self, object):
+        self.object_dict[object.get_name()] = object.print_description_obj()
+
+    # def get_values_objects_dict(self):
+    #     object_list = []
+    #     for item in self.object_dict:
+    #         object = item.
+    #         object_list.append(object)
+    #     return object_list
+
+
+
 
     # def get_actions_dict(self):
     #     print(self.actions_dict.keys())
@@ -75,11 +85,5 @@ class Room:
     def return_actions(self):
         return self.actions
 
-    def inspect(self, object): # assert object of class Thing
-        return T.Thing.get_description(object)
-
-    def grab(self, object):
-        print('You can grab this')
-        P.Player.add_to_inventory(self, object)
 
 
