@@ -3,9 +3,8 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-import class_Player as P
-import class_Room
-import main
+from old_files import class_Player as P
+
 
 class Thing:
     def __init__(self, name, description):

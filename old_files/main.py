@@ -3,15 +3,11 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-import class_Room as R
-import class_Player as P
-import class_Thing as T
-
 import sys
 
 import time
 
-import auxiliary_functions as funct
+from old_files import auxiliary_functions as funct, class_Player as P, class_Room as R, class_Thing as T
 
 
 class Game:

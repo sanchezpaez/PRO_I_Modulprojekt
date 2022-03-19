@@ -3,18 +3,10 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-import class_Room as R
-import class_Player as P
-import class_Thing as T
-
-import sys
-
 import time
 
-import auxiliary_functions as funct
-
 import sys
-from time import sleep
+
 
 class Player:
     def __init__(self, name, description, lives):
@@ -242,7 +234,9 @@ class Game:
                     print("Try grabbing something first.")
             elif response == "leave room":
                 new_room = self.current_room.leave_room()
-                self.current_room = new_room
+                if new_room:
+                    self.current_room = new_room
+                #todo: if no real room given as input, handle exception (e.g. typing mistake)
             elif response == "check inventory":
                 self.player.print_inventory()
             else:

@@ -3,12 +3,10 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-import auxiliary_functions as funct
-#
-import main as m
-import class_Thing as T
+from old_files import auxiliary_functions as funct
 
-import class_Player as P
+
+#
 
 class Room:
     def __init__(self, name, description_file):
