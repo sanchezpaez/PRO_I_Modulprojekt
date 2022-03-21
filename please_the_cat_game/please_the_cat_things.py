@@ -1,47 +1,15 @@
-class Thing:
-    def __init__(self, name, description, is_grabbable=False):
-        self.name = name
-        self.description = description
-        self.is_grabbable = is_grabbable
-
-
-class GrabbableThing(Thing):
-    def __init__(self, name, description, use_description, is_infinite, kills):
-        super().__init__(name, description, is_grabbable=True)
-        self.use_description = use_description
-        self.is_infinite = is_infinite
-        self.kills = kills
-
-
-class InfiniteUseThing(GrabbableThing):
-    def __init__(self, name, description, use_description, kills=False):
-        super().__init__(name, description, use_description, True, kills)
-
-    @staticmethod
-    def get_status():
-        return "You can use this as many times as you want."
-
-
-class FiniteUseThing(GrabbableThing):
-    def __init__(self, name, description, use_description, status_descriptions, kills=False):
-        super().__init__(name, description, use_description, False, kills)
-        self.uses = len(status_descriptions)
-        self.status_descriptions = status_descriptions
-
-    def get_status(self):
-        return f"{self.status_descriptions[self.uses - 1]}\nYou can use this {self.uses} more time(s)."
-
+from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing
 
 pair_of_shoes = InfiniteUseThing(
     name='Pair of shoes',
     description="Very fancy shoes. Why was it again that you haven't worn them?",
     use_description="Comfy and stylish, perfect for you."
 )
-inflatable_boat = FiniteUseThing(
+inflatable_boat = SingleUseThing(
     name='inflatable boat',
     description="Perfect for really hot days at the lake.",
     use_description="Your are using it...in the cellar, so it breaks.",
-    status_descriptions=["This looks a bit fragile, be careful."],
+    status_description="This looks a bit fragile, be careful.",
     kills=False
 )
 
@@ -56,11 +24,11 @@ tacky_dishes = InfiniteUseThing(
     use_description="You may want to put some food on that first, but whatever. I'm not judging there."
 )
 
-box_of_chocolates = FiniteUseThing(
+box_of_chocolates = SingleUseThing(
     name='box of chocolates',
     description="Not your thing, but you can use them to get your daughters to do what you want.",
     use_description="Mmm...delicious. Wait, what was the expiry date?",
-    status_descriptions=["You don't know how to eat only one at a time."],
+    status_description="You don't know how to eat only one at a time.",
     kills=True
 )
 
@@ -75,11 +43,11 @@ shovel = InfiniteUseThing(
     use_description="Dig, dig...and a bit more dig."
 )
 
-flower_seeds = FiniteUseThing(
+flower_seeds = SingleUseThing(
     name='flower seeds',
     description="Plant at the end of March, water and wait for the miracle to happen.",
     use_description="You planted the seeds, well done! But wait, are those flowers not poisonous?",
-    status_descriptions=["Once you plant them they will be gone."],
+    status_description="Once you plant them they will be gone.",
     kills=True
 )
 
