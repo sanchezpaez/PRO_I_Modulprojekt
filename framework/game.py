@@ -1,21 +1,16 @@
-# -*- coding: utf-8 -*-
-# Modulprojekt PRO1
-# Authorin: Sandra Sánchez
-# Datum: 16.02.2022
-
 import sys
 import time
 
-from player import Player
-from room import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, neighbours
-from thing import GrabbableThing
+
+# from thing import GrabbableThing
+from framework.thing import GrabbableThing
 
 
 class Game:
     def __init__(self, starting_room):
         self.description = "Intro how to play the game.\n"
         self.current_room = starting_room
-        self.player: Player = None
+        self.player = None
 
     def generate_player_features(self):
         print("What is your name?")
@@ -113,7 +108,6 @@ class Game:
     def exit_game(self):
         self._exit('BYE! See you next time :)')
 
-
     def inspect(self):
         print("What do you want to inspect?")
         self.current_room.print_things()
@@ -130,35 +124,3 @@ class Game:
 
     # def game_over(self):
     #     self._exit("You're dead. Be smarter next time.")
-
-
-if __name__ == '__main__':
-    kitchen.east_room = bathroom
-    kitchen.south_room = bedroom
-    kitchen.north_room = living_room
-    kitchen.west_room = garden
-    bathroom.west_room = kitchen
-    bathroom.north_room = cellar
-    bathroom.east_room = neighbours
-    bedroom.north_room = kitchen
-    living_room.south_room = kitchen
-    living_room.east_room = cellar
-    living_room.west_room = hof
-    garden.east_room = kitchen
-    garden.north_room = hof
-    cellar.south_room = bathroom
-    cellar.west_room = living_room
-    hall.south_room = living_room
-    hof.south_room = garden
-    hof.east_room = living_room
-    neighbours.west_room = bathroom
-    game = Game(starting_room=kitchen)
-    features = game.generate_player_features()
-    game.player = Player(features[0], features[1], features[2])
-    game.play()
-
-# example:
-# user needs to know about objects
-# rooms have objects (Thing)
-# user needs to ask about a Thing via a string
-# we need to access the correct Thing

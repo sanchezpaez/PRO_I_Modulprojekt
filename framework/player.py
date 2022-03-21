@@ -1,6 +1,6 @@
 import sys
 
-from thing import Thing, FiniteUseThing
+from framework.thing import FiniteUseThing
 
 
 class Player:
@@ -8,7 +8,7 @@ class Player:
         self.name = name
         self.description = description
         self.lives = lives
-        self.inventory: list[Thing] = []
+        self.inventory = []
 
     def subtract_lives(self):
         self.lives -= 1
