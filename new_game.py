@@ -7,8 +7,8 @@ import sys
 import time
 
 from player import Player
-from room import Room
-from thing import GrabbableThing, InfiniteUseThing, FiniteUseThing, Thing
+from room import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, neighbours
+from thing import GrabbableThing
 
 
 class Game:
@@ -113,6 +113,7 @@ class Game:
     def exit_game(self):
         self._exit('BYE! See you next time :)')
 
+
     def inspect(self):
         print("What do you want to inspect?")
         self.current_room.print_things()
@@ -132,180 +133,25 @@ class Game:
 
 
 if __name__ == '__main__':
-    kitchen = Room(
-        name='kitchen',
-        description="You are in the kitchen. One would think there is something here to please that cat of yours. "
-                    "Check every item carefully, things are not what they seem...\n\nThere is some mayonnaise and a knife on the table.",
-        things=[
-            InfiniteUseThing(
-                name='knife',
-                description="It doesn't look very sharp, but it works.",
-                use_description="zim zam zum"
-            ),
-            FiniteUseThing(
-                name='mayo',
-                description="It doesn't look really fresh, but you're starving...",
-                use_description="there you go, just a spoon full of...mayonnaise...",
-                uses=3,
-                kills=True
-            ),
-            Thing(
-                name='table',
-                description="This looks heavy.",
-            )
-        ],
-    )
-    bathroom = Room(
-        name='bathroom',
-        description="It smells of kind of nice here... mixed with cat pee. Ok, maybe not so nice. \n"
-                    "It's probably a good idea to start washing your hands, since you're in the bathroom.",
-        things=[
-            # InfiniteUseThing(
-            #     name='knife',
-            #     description="It doesn't look very sharp, but it works.",
-            #     use_description="zim zam zum"
-            # ),
-            # FiniteUseThing(
-            #     name='mayo',
-            #     description="It doesn't look really fresh, but you're starving...",
-            #     use_description="there you go, just a spoon full of...mayonnaise...",
-            #     uses=3,
-            #     kills=True
-            # ),
-            # Thing(
-            #     name='table',
-            #     description="This looks heavy.",
-            # )
-        ],
-    )
-    bedroom = Room(
-        name='bedroom',
-        description="This is the bedroom. "
-                    "There is a pile of clothes on the chair. The wardrobe is slightly open.\n",
-        things=[
-            InfiniteUseThing(
-                name='blanket',
-                description="Not very clean, but soft and warm.",
-                use_description="Mmm...that feels nice."
-            ),
-            FiniteUseThing(
-                name='bubble-maker',
-                description="'Catnip bubbles for stressed cats'...I'm wondering what it does to humans.",
-                use_description="BLUB...BLUBB...BLUB...Yay!",
-                uses=3,
-                kills=True
-            ),
-            Thing(
-                name='cat',
-                description="That is a catosaur!",
-            ) #todo: create animal class
-        ],
-    )
-    living_room = Room(
-        name='living-room',
-        description="This is the living-room. "
-                    "There are toys everywhere. You can also see some books on the shelf.\n",
-        things=[
-            InfiniteUseThing(
-                name='book',
-                description="'Woman Rebel. The Margaret Sanger Story', by Peter Bagge.\nSounds cool, I wish I had the time to read it.",
-                use_description="The life of the birth-control activist, educator, nurse, mother and protofeminist from her birth..."
-            ),
-            FiniteUseThing(
-                name='Friskies',
-                description="Low-quality cat food. Exactly what your cat and you 2 year-old love to eat.",
-                use_description="Crunch, crunch...yummy!",
-                uses=3,
-                kills=True
-            ),
-            Thing(
-                name='window',
-                description="You can see the tress blooming and some birds building a nest. Isn't spring wonderful?",
-            )
-        ],
-    )
-    garden = Room(
-        name='garden',
-        description="This is the garden."
-                    "The autumn leaves have been there since October, you should find the time to tidy up a bit this space.\n",
-        things=[
-            InfiniteUseThing(
-                name='shovel',
-                description="Kid-size shovel. Perfect to dig in the sandbox.",
-                use_description="Dig, dig...and a bit more dig."
-            ),
-            FiniteUseThing(
-                name='flower seeds',
-                description="Plant at the end of March, water and wait for the miracle to happen.",
-                use_description="You planted the seeds, well done! But wait, are those flowers not poisonous?",
-                uses=1,
-                kills=True
-            ),
-            Thing(
-                name='swing',
-                description="You are too heavy for this, don't even dream about it.",
-            )
-        ],
-    )
-    cellar = Room(
-        name='cellar',
-        description="This is the cellar."
-                    "A dark and dusty room full of crap, aka spider paradise. \nYou see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an iflatable boat.\n",
-        things=[
-            InfiniteUseThing(
-                name='Pair of shoes',
-                description="Very fancy shoes. Why was it again that you haven't worn them?",
-                use_description="Comfy and stylish, perfect for you."
-            ),
-            FiniteUseThing(
-                name='inflatable boat',
-                description="Perfect for really hot days at the lake.",
-                use_description="Your are using it...in the cellar, so it breaks.",
-                uses=1,
-                kills=False
-            ),
-            Thing(
-                name='donation bags',
-                description="There are clothes, food and toiletries.",
-            )
-        ],
-    )
-    hall = Room(
-        name='hall',
-        description="This is the hall."
-                    "A weird place to look for anything, unless your cat has escaped from the flat.",
-        things=[
-            InfiniteUseThing(
-                name='tacky dishes',
-                description="Not beautiful, but in one piece.",
-                use_description="You may want to put some food on that first, but whatever. I'm not judging there."
-            ),
-            FiniteUseThing(
-                name='box of chocolates',
-                description="Not your thing, but you can use them to get your daughters to do what you want.",
-                use_description="Mmm...delicious. Wait, what was the expiry date?",
-                uses=1,
-                kills=True
-            ),
-            Thing(
-                name='mailbox',
-                description="Just some bloody Werbung, not worth checking.",
-            )
-        ],
-    )
     kitchen.east_room = bathroom
     kitchen.south_room = bedroom
     kitchen.north_room = living_room
     kitchen.west_room = garden
     bathroom.west_room = kitchen
     bathroom.north_room = cellar
+    bathroom.east_room = neighbours
     bedroom.north_room = kitchen
     living_room.south_room = kitchen
     living_room.east_room = cellar
+    living_room.west_room = hof
     garden.east_room = kitchen
+    garden.north_room = hof
     cellar.south_room = bathroom
     cellar.west_room = living_room
     hall.south_room = living_room
+    hof.south_room = garden
+    hof.east_room = living_room
+    neighbours.west_room = bathroom
     game = Game(starting_room=kitchen)
     features = game.generate_player_features()
     game.player = Player(features[0], features[1], features[2])

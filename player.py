@@ -49,6 +49,6 @@ class Player:
                 print(f"There is no {thing.name} left.")
                 self.inventory.remove(thing)
             else:
-                print(f"You have {thing.uses} left.")
+                print(thing.get_status())
         else:
             print("You can use this as many times as you want.")
