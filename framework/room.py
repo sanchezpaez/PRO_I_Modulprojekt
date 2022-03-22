@@ -1,5 +1,7 @@
-
-
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
 
 class Room:
     def __init__(self, name, description, things):
@@ -67,3 +69,16 @@ class Room:
     def get_things_names(self):
         things_names = [thing.name for thing in self.things]
         return things_names
+
+
+class SpecialRoom(Room):
+    def __init__(self, name, description, second_description, things, special_thing):
+        super().__init__(name, description, things)
+        self.second_description = second_description
+        self.special_thing = special_thing
+
+    def leave_room(self):
+        new_room = super().leave_room()
+        self.description = self.second_description
+        self.things.append(self.special_thing)
+        return new_room

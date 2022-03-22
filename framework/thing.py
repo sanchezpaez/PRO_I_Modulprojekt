@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
+
 class Thing:
     def __init__(self, name, description, is_grabbable=False):
         self.name = name
@@ -33,5 +38,7 @@ class FiniteUseThing(GrabbableThing):
 
 
 class SingleUseThing(FiniteUseThing):
-    def __init__(self, name, description, use_description, status_description, kills=False):
+    def __init__(self, name, description, use_description, status_description, kills=False, wins=False):
         super().__init__(name, description, use_description, [status_description], kills)
+        self.wins = wins
+

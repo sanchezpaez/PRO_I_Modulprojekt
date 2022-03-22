@@ -1,22 +1,43 @@
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
+
 import sys
 import time
 
-
-# from thing import GrabbableThing
 from framework.thing import GrabbableThing
 
 
 class Game:
-    def __init__(self, starting_room):
-        self.description = "Intro how to play the game.\n"
+    """
+    A class to represent the game.
+    Attributes
+    ----------
+    name : str
+        Name of the game
+    description : str
+        Explains aim of the game
+    starting_room : Room
+        starting location to __init__ game
+    """
+
+    def __init__(self, name, description, starting_room):
+        self.name = name
+        self.description = description
         self.current_room = starting_room
         self.player = None
 
     def generate_player_features(self):
+        """
+        Ask from user's input(str) to generate player's attributes.
+        :return:
+            attributes name, description, lives(list).
+        """
         print("What is your name?")
         name = input('>')
         time.sleep(1)
-        print(f"Welcome to 'Please the Cat', {name}!")
+        print(f"Welcome to '{self.name}', {name}!")
         time.sleep(1)
         print("How would you describe yourself?")
         description = input('>')
@@ -29,6 +50,11 @@ class Game:
         return name, description, lives
 
     def choose_number(self):
+        """
+        Take user's input (number in specified range) and return integer, that will become the player's lives.
+        :return:
+            number(int).
+        """
         number = 0
         print("Choose a number from 1 to 5?")
         chosen_number = int(input('>'))
@@ -41,9 +67,16 @@ class Game:
 
     @staticmethod
     def print_warning():
+        """
+        Print message(str) when input is unexpected.
+        """
         print("Are you sure that is what you are trying to say?")
 
     def play(self):
+        """
+        Start game engine and call other methods depending on input, until condition is met (either player's lives == 0
+                 or player uses special object).
+        """
         print(self.description)
         while True:
             print()
@@ -80,6 +113,11 @@ class Game:
                 self.print_warning()
 
     def ask_for_thing_to_grab(self):
+        """
+        Offer available options and  take input.
+        :return:
+             Either Thing or None.
+        """
         print("What do you want to grab?")
         self.current_room.print_things()
         user_input = input(">")
@@ -95,6 +133,11 @@ class Game:
             return None
 
     def ask_for_thing_to_use(self):
+        """
+        Offer available options and  take input.
+        :return:
+             Either Thing or None.
+        """
         print("What do you want to use?")
         self.player.print_inventory()
         user_input = input(">")
@@ -106,9 +149,15 @@ class Game:
             return None
 
     def exit_game(self):
+        """Call self._exit with goodbye message(str)"""
         self._exit('BYE! See you next time :)')
 
     def inspect(self):
+        """
+        Offer available options, take input.
+        :return:
+            print thing description (str).
+        """
         print("What do you want to inspect?")
         self.current_room.print_things()
         user_input = input(">")
@@ -119,8 +168,7 @@ class Game:
             self.print_warning()
 
     def _exit(self, message):
+        """Call sys.exit(), offer a message parameter."""
         print(message)
         sys.exit()
 
-    # def game_over(self):
-    #     self._exit("You're dead. Be smarter next time.")
