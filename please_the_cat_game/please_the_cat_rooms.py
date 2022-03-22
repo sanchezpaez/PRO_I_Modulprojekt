@@ -1,15 +1,23 @@
-from framework.room import Room
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
+
+from framework.room import Room, SpecialRoom
 from please_the_cat_game.please_the_cat_things import pair_of_shoes, inflatable_boat, donation_bags, tacky_dishes, \
     box_of_chocolates, mailbox, shovel, flower_seeds, swing, book, friskies, window, blanket, cat, \
-    bubble_maker, hairbands, phone, litter_box, knife, mayo, table, empty_beer_bottle, bicycle, chestnuts, rug, picture
+    bubble_maker, hairbands, phone, litter_box, knife, mayo, table, empty_beer_bottle, bicycle, chestnuts, rug, picture, \
+    toy
 
-kitchen = Room(
+kitchen = SpecialRoom(
     name='kitchen',
     description="You are in the kitchen. One would think there is something here to please that cat of yours. "
                 "Check every item carefully, things are not what they seem...\n\nThere is some mayonnaise and a knife on the table.",
+    second_description="You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...",
     things=[
         knife, mayo, table
     ],
+    special_thing=toy,
 )
 bathroom = Room(
     name='bathroom',

@@ -1,4 +1,9 @@
-from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
+
+from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing, GrabbableThing
 
 pair_of_shoes = InfiniteUseThing(
     name='Pair of shoes',
@@ -165,4 +170,12 @@ rug = InfiniteUseThing(
 picture = Thing(
     name='picture',
     description="You could probably do that better. That's what Basquiat thought when he painted it.",
+)
+
+toy = SingleUseThing(
+    name="toy",
+    description="Your cat's dearest toy, Baudelaire.",
+    use_description="Mmm...it feels like home.",
+    status_description="Old and dirty, just how she likes it.",
+    wins=True,
 )
