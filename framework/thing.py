@@ -3,6 +3,11 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
+class Deadliness:
+    not_deadly = False
+    deadly = True
+
+
 class Thing:
     """
     A class to represent all objects in the game that can belong to an inventory.
@@ -74,7 +79,6 @@ class InfiniteUseThing(GrabbableThing):
 
     Attributes
     ----------
-    is_infinite : True
     kills : bool
         Not specified.
     """
@@ -97,13 +101,13 @@ class FiniteUseThing(GrabbableThing):
     ----------
     status_descriptions : str
         Degrading status depending on use.
-    uses : int
+    status_descriptions : int
         Number of uses left.
     kills : bool
         False is default value.
     """
 
-    def __init__(self, name, description, use_description, status_descriptions, kills=False):
+    def __init__(self, name, description, use_description, status_descriptions, kills=Deadliness.not_deadly):
         super().__init__(name, description, use_description, False, kills)
         self.__uses = len(status_descriptions)
         self.__status_descriptions = status_descriptions

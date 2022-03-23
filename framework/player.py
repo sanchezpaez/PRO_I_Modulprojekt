@@ -3,10 +3,7 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-import sys
-
-from framework import game
-from framework.thing import FiniteUseThing, SingleUseThing
+from framework.thing import FiniteUseThing, SingleUseThing, Deadliness
 
 
 class Player:
@@ -21,6 +18,7 @@ class Player:
     lives : int
         Opportunities to win the game until the game exits
     """
+
     def __init__(self, name, description, lives):
         self.__name = name
         self.__description = description
@@ -82,12 +80,16 @@ class Player:
         """
         print(thing.use_description)
         if isinstance(thing, SingleUseThing) and thing.wins:
-            # print(f"Congrats, {self.name} -- you definitely are {self.description}!\nYou win the game :)")
-            # sys.exit()
             return f"Congrats, {self.name} -- you definitely are {self.description}!\nYou win the game :)"
         else:
-            if thing.kills:
+            if thing.kills == Deadliness.deadly:
                 self.subtract_lives()
+                if self.lives == 0:
+                    return f"You're dead, {self.name}!  Be {self.description}-er next time!  GAME OVER."
+                else:
+                    print(
+                        "That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).")
+                    print(f"You have {self.lives} lives left.")
             if isinstance(thing, FiniteUseThing):
                 thing.uses -= 1
                 if thing.uses == 0:
@@ -107,15 +109,3 @@ class Player:
             print message with remaining lives.
         """
         self.lives -= 1
-        if self.lives == 0:
-            self.die()
-        else:
-            print("That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).")
-            print(f"You have {self.lives} lives left.")
-
-    def die(self):
-        """Print personalised message and exit game."""
-        print(f"You're dead, {self.name}!  Be {self.description}-er next time!  GAME OVER.")
-        sys.exit()  # We cannot access exit_game from the player  bc it's on the game level
-        # implement restart
-        #todo: create player?

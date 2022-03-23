@@ -3,7 +3,7 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing, GrabbableThing
+from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing, Deadliness
 
 pair_of_shoes = InfiniteUseThing(
     name='Pair of shoes',
@@ -15,7 +15,6 @@ inflatable_boat = SingleUseThing(
     description="Perfect for really hot days at the lake.",
     use_description="Your are using it...in the cellar, so it breaks.",
     status_description="This looks a bit fragile, be careful.",
-    kills=False
 )
 
 donation_bags = Thing(
@@ -34,7 +33,7 @@ box_of_chocolates = SingleUseThing(
     description="Not your thing, but you can use them to get your daughters to do what you want.",
     use_description="Mmm...delicious. Wait, what was the expiry date?",
     status_description="You don't know how to eat only one at a time.",
-    kills=True
+    kills=Deadliness.deadly
 )
 
 mailbox = Thing(
@@ -53,7 +52,7 @@ flower_seeds = SingleUseThing(
     description="Plant at the end of March, water and wait for the miracle to happen.",
     use_description="You planted the seeds, well done! But wait, are those flowers not poisonous?",
     status_description="Once you plant them they will be gone.",
-    kills=True
+    kills=Deadliness.deadly
 )
 
 swing = Thing(
@@ -73,7 +72,7 @@ friskies = FiniteUseThing(
     use_description="Crunch, crunch...yummy!",
     status_descriptions=["Go to dm later and get some more.", "There's still enough for the rest of the week.",
                          "It's full."],
-    kills=True
+    kills=Deadliness.deadly
 )
 
 window = Thing(
@@ -92,7 +91,7 @@ bubble_maker = FiniteUseThing(
     description="'Catnip bubbles for stressed cats'...I'm wondering what it does to humans.",
     use_description="BLUB...BLUBB...BLUB...Yay!",
     status_descriptions=["Almost nothing left.", "Now there's only half of it left.", "It's full."],
-    kills=True
+    kills=Deadliness.deadly
 )
 
 cat = Thing(
@@ -105,7 +104,6 @@ hairbands = FiniteUseThing(
     description="A bunch of colourful hairbands.",
     use_description="Yeah, I like not having hair on my face constantly.",
     status_descriptions=["These won't last forever.", "Enough for pigtails."],
-    kills=False
 )
 
 phone = FiniteUseThing(
@@ -113,7 +111,6 @@ phone = FiniteUseThing(
     description="2435 unread emails, 3 likes on Instagram and way too many messages on the Elternchat on WhatsApp.",
     use_description="Let's check the weather for tomorrow...",
     status_descriptions=["It doesn't charge anymore.", "The screen is broken.", "Fully charged."],
-    kills=False
 )
 
 litter_box = InfiniteUseThing(
@@ -133,7 +130,7 @@ mayo = FiniteUseThing(
     description="It doesn't look really fresh, but you're starving...",
     use_description="there you go, just a spoon full of...mayonnaise...",
     status_descriptions=["Expired.", "You can still have a few fries with it."],
-    kills=True
+    kills=Deadliness.deadly
 )
 
 table = Thing(
@@ -146,7 +143,7 @@ empty_beer_bottle = FiniteUseThing(
     description="An empty bottle of your favourite beer. You can use it to hit things.",
     use_description="Bang bang bang",
     status_descriptions=["Be careful, it's about to break.", "It's empty, but robust."],
-    kills=True
+    kills=Deadliness.deadly
 )
 
 bicycle = InfiniteUseThing(
@@ -159,7 +156,7 @@ chestnuts = FiniteUseThing(
     description="A handful of bitter chestnuts that your daughter loves to collect and store by the bathroom window.",
     use_description="Argghh, it was not a good idea to bite one of them.",
     status_descriptions=["You can hardly do anything with these.", "So many broken shells."],
-    kills=True
+    kills=Deadliness.deadly
 )
 
 rug = InfiniteUseThing(

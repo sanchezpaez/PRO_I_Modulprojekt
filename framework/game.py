@@ -118,7 +118,9 @@ class Game:
                     if isinstance(thing_to_use, GrabbableThing):
                         message = self.__player.use(thing_to_use)
                         if message:
-                            self._exit(message)
+                            print(message)
+                            sys.exit()
+                            #self.offer_restart()
                 else:
                     print("You have nothing to use in your inventory.")
                     print("Try grabbing something first.")
@@ -171,7 +173,8 @@ class Game:
 
     def exit_game(self):
         """Call self._exit with goodbye message(str)"""
-        self._exit('BYE! See you next time :)')
+        print('BYE! See you next time :)')
+        sys.exit()
 
     def inspect(self):
         """
@@ -188,8 +191,15 @@ class Game:
         else:
             self.print_warning()
 
-    def _exit(self, message):
-        """Call sys.exit(), offer a message parameter."""
-        print(message)
-        sys.exit()
+    # def offer_restart(self):
+    #     while True:
+    #         print("Do you want to play again?")
+    #         response = input('>')
+    #         if response == 'yes':
+    #             self.play()
+    #         elif response == 'no':
+    #             self.exit_game()
+    #         else:
+    #             self.print_warning()
+
 
