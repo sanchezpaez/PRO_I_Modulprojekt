@@ -6,6 +6,7 @@
 import sys
 import time
 
+from framework.player import Player
 from framework.thing import GrabbableThing
 
 
@@ -23,10 +24,26 @@ class Game:
     """
 
     def __init__(self, name, description, starting_room):
-        self.name = name
-        self.description = description
-        self.current_room = starting_room
-        self.player = None
+        self.__name = name
+        self.__description = description
+        self.__current_room = starting_room
+        self.__player = None  # The game starts without a player, it will be generated later on through user's input.
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def description(self):
+        return self.__description
+
+    @property
+    def current_room(self):
+        return self.__current_room
+
+    @property
+    def player(self):
+        return self.__player
 
     def generate_player_features(self):
         """
@@ -37,7 +54,7 @@ class Game:
         print("What is your name?")
         name = input('>')
         time.sleep(1)
-        print(f"Welcome to '{self.name}', {name}!")
+        print(f"Welcome to '{self.__name}', {name}!")  # Print out personalised message
         time.sleep(1)
         print("How would you describe yourself?")
         description = input('>')
@@ -77,13 +94,14 @@ class Game:
         Start game engine and call other methods depending on input, until condition is met (either player's lives == 0
                  or player uses special object).
         """
-        print(self.description)
+        self.__player = Player(*self.generate_player_features())
+        print(self.__description)
         while True:
             print()
             print()
-            print(self.current_room.description)
+            print(self.__current_room.description)
             print("\nWhat do you want to do?")
-            print("\nexit game  inspect  grab  use  leave room  check inventory")
+            print("\ninspect  grab  use  leave room  check inventory exit game")
             response = input(">")
             if response == "exit game":
                 self.exit_game()
@@ -92,23 +110,26 @@ class Game:
             elif response == "grab":
                 thing_to_grab = self.ask_for_thing_to_grab()
                 if isinstance(thing_to_grab, GrabbableThing):
-                    self.player.grab(thing_to_grab)
-                    self.current_room.remove(thing_to_grab)
+                    self.__player.grab(thing_to_grab)
+                    self.__current_room.remove(thing_to_grab)
             elif response == "use":
-                if self.player.inventory:
+                if self.__player.inventory:
                     thing_to_use = self.ask_for_thing_to_use()
                     if isinstance(thing_to_use, GrabbableThing):
-                        self.player.use(thing_to_use)
+                        message = self.__player.use(thing_to_use)
+                        if message:
+                            self._exit(message)
                 else:
                     print("You have nothing to use in your inventory.")
                     print("Try grabbing something first.")
             elif response == "leave room":
-                new_room = self.current_room.leave_room()
+                new_room = self.__current_room.leave_room()
                 if new_room:
-                    self.current_room = new_room
-                # todo: if no real room given as input, handle exception (e.g. typing mistake)
+                    self.__current_room = new_room
+                else:
+                    self.print_warning()
             elif response == "check inventory":
-                self.player.print_inventory()
+                self.__player.print_inventory()
             else:
                 self.print_warning()
 
@@ -119,10 +140,10 @@ class Game:
              Either Thing or None.
         """
         print("What do you want to grab?")
-        self.current_room.print_things()
+        self.__current_room.print_things()
         user_input = input(">")
-        if user_input in self.current_room.get_things_names():
-            thing = [thing for thing in self.current_room.things if user_input == thing.name][0]
+        if user_input in self.__current_room.get_things_names():
+            thing = [thing for thing in self.__current_room.things if user_input == thing.name][0]
             if thing.is_grabbable:
                 return thing
             else:
@@ -139,10 +160,10 @@ class Game:
              Either Thing or None.
         """
         print("What do you want to use?")
-        self.player.print_inventory()
+        self.__player.print_inventory()
         user_input = input(">")
-        if user_input in self.player.get_inventory_names():
-            thing = [thing for thing in self.player.inventory if user_input == thing.name][0]
+        if user_input in self.__player.get_inventory_names():
+            thing = [thing for thing in self.__player.inventory if user_input == thing.name][0]
             return thing
         else:
             self.print_warning()
@@ -159,10 +180,10 @@ class Game:
             print thing description (str).
         """
         print("What do you want to inspect?")
-        self.current_room.print_things()
+        self.__current_room.print_things()
         user_input = input(">")
-        if user_input in self.current_room.get_things_names():
-            thing = [thing for thing in self.current_room.things if user_input == thing.name][0]
+        if user_input in self.__current_room.get_things_names():
+            thing = [thing for thing in self.__current_room.things if user_input == thing.name][0]
             print(thing.description)
         else:
             self.print_warning()

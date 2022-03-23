@@ -5,7 +5,6 @@
 
 
 from framework.game import Game
-from framework.player import Player
 from please_the_cat_game.please_the_cat_rooms import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, \
     neighbours
 
@@ -32,6 +31,4 @@ if __name__ == '__main__':
     game = Game(name="Please the Cat", description="You love your cat, but she is very annoying when she doesn't find "
                                                    "her toy. \nFind it and she will stop meowings.",
                 starting_room=kitchen)
-    features = game.generate_player_features()
-    game.player = Player(features[0], features[1], features[2])
     game.play()

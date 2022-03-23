@@ -1,3 +1,80 @@
-# Modulprojekt
+Installation and functionality description
+=======================
 
-Repository, das das Programmierprojekt enthält.
+1. Intro
+-------
+
+This directory contains a framework to generate limitless text-adventure games.
+The structure of the game is the following: once the game starts, the aim of the game is presented. The player is created based on the user's input, and it has a starting location. They can move around some spaces, that contain objects. The player can interact with the things around them and perform actions on them. The player has lives, that they can lose after using certain objects. If they run out of lives, they lose the game. The player needs to find, grab and use a special object in order to win the game.
+
+The directory contains:
+-An OOP framework 
+-A specific game("Please the Cat").
+-An example of how the game can be played.
+-A UML diagram that explains relationships between objects in the framework.
+-A tests.py file to run tests on all the files, and which shows and example of a simple new game.
+
+
+2. Prerequisites
+-------
+
+The game was coded using Python version 3.10. It is recommended to run it on the latest version as earlier versions can be unstable.
+
+No aditional packages need to be installed.
+
+
+3. How to install
+-------
+
+If you do not have Python:
+
+1) Install the version of Anaconda compatible with your operative system (Windows, Mac, linux) here: https://docs.anaconda.com/anaconda/install/index.html
+
+2) It is recommended to update Python to its latest version.
+
+
+4. How to use
+-------
+
+The framework creates all the necessary classes for the game: Game, Room, Player Thing and all the different subclasses of Thing.
+
+For the user to be able to make a new game the following steps need to be taken:
+
+* Download and save the framework directory.
+* Create new .py file and import:
+  from framework.game import Game
+  from framework.room import Room, SpecialRoom
+  from framework.thing import InfiniteUseThing, SingleUseThing
+  from framework.player import Player
+
+The tests.py file shows an example of a new implementation: the new variables for Game, Room and Thing instances (within the rooms) need to be created. The player will be generated within the game.
+
+
+For the user to be able to play 'Please the Cat Game':
+
+* Download and save the directory please_the_cat_game in your computer wherever you wish. Then from Terminal (CMD for Windows) set your working directory to that of your file (for example: cd Desktop/please_the_cat_game).
+
+* Once you are in the right working directory, type python game.py and hit 'enter'.
+
+You should see on your screen: 
+'What is your name?'
+>
+
+You are ready to play!
+
+
+5. How to contribute
+-------
+
+The framework can be extended by adding more modules and methods. More scenes and challenges can be added. Don't be shy!
+
+
+6. Acknowledgements
+-------
+
+paetzel-pruesmann@uni-potsdam.de for setting the minimal requirements for this PRO I module project.
+
+7. Contact information
+-------
+
+If you have any questions or problems during they installation process, feel free to email sandrasanchezp@hotmail.com
