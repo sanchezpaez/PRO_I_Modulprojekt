@@ -2,8 +2,10 @@
 # Modulprojekt PRO1
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
+import time
 
-from framework.framework_thing import FiniteUseThing, SingleUseThing, Deadliness
+from framework.framework_thing \
+    import FiniteUseThing, SingleUseThing, Deadliness
 
 
 class Player:
@@ -71,6 +73,7 @@ class Player:
 
     def grab(self, thing):
         """Print grab message and add Thing to player's inventory."""
+        print()
         print(f"You grabbed the {thing.name}.")
         self.inventory.append(thing)
 
@@ -84,17 +87,27 @@ class Player:
             else: print message.
         """
         print(thing.use_description)
+        time.sleep(1)
+        print()
         if isinstance(thing, SingleUseThing) and thing.wins:
-            return f"Congrats, {self.name} -- you definitely are {self.description}!\nYou win the game :)"
+            # If player uses the special_thing, they win
+            return f"Congrats, {self.name} -- you definitely are" \
+                   f" {self.description}!\nYou win the game :)"
         else:
             if thing.kills == Deadliness.deadly:
+                # If player uses thing that kills, they have one life less
                 self.subtract_lives()
                 if self.lives == 0:
-                    return f"You're dead, {self.name}!  Be {self.description}-er next time!  GAME OVER."
+                    return f"You're dead, {self.name}!  " \
+                           f"Be {self.description}-er next time!  GAME OVER."
                 else:
                     print(
-                        "That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).")
+                        "That was a near-to-death experience. "
+                        "But what doesn't kill you, makes you stronger (kind of).")
+                    time.sleep(1)
+                    print()
                     print(f"You have {self.lives} lives left.")
+                    print()
             if isinstance(thing, FiniteUseThing):
                 thing.uses -= 1
                 if thing.uses == 0:
@@ -102,8 +115,10 @@ class Player:
                     self.inventory.remove(thing)
                 else:
                     print(thing.get_status())
+                    print()
             else:
                 print("You can use this as many times as you want.")
+                print()
 
     def subtract_lives(self):
         """Subtract 1 life from player."""

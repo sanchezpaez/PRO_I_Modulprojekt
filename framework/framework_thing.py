@@ -2,8 +2,10 @@
 # Modulprojekt PRO1
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
+import enum
 
-class Deadliness:
+
+class Deadliness(enum.Enum):
     """
     Enum class to represent the killing status of FiniteUseThing instances.
 
@@ -20,7 +22,8 @@ class Deadliness:
 
 class Thing:
     """
-    A class to represent all objects in the game that can belong to an inventory.
+    A class to represent all objects in the game
+     that can belong to an inventory.
 
     Attributes
     ----------
@@ -55,7 +58,8 @@ class Thing:
 
 class GrabbableThing(Thing):
     """
-    A class to represent all Thing instances in the game where is_grabbable = True.
+    A class to represent all Thing instances in the game
+     where is_grabbable = True.
     They can be added to the player's inventory.
 
     Attributes
@@ -91,7 +95,8 @@ class GrabbableThing(Thing):
 class InfiniteUseThing(GrabbableThing):
     """
     A class to represent all GrabbableThing instances in the game.
-    They can be added to the player's inventory and used for an unlimited number of times.
+    They can be added to the player's inventory and used
+    for an unlimited number of times.
 
     Attributes
     ----------
@@ -123,7 +128,8 @@ class FiniteUseThing(GrabbableThing):
         not_deadly is default value.
     """
 
-    def __init__(self, name, description, use_description, status_descriptions, kills=Deadliness.not_deadly):
+    def __init__(self, name, description, use_description,
+                 status_descriptions, kills=Deadliness.not_deadly):
         super().__init__(name, description, use_description, False, kills)
         self.__uses = len(status_descriptions)
         self.__status_descriptions = status_descriptions
@@ -145,7 +151,8 @@ class FiniteUseThing(GrabbableThing):
 
     def get_status(self):
         """Return current status(str) and uses(int) left."""
-        return f"{self.__status_descriptions[self.__uses - 1]}\nYou can use this {self.__uses} more time(s)."
+        return f"{self.__status_descriptions[self.__uses - 1]}\n" \
+               f"You can use this {self.__uses} more time(s)."
 
 
 class SingleUseThing(FiniteUseThing):
@@ -156,11 +163,14 @@ class SingleUseThing(FiniteUseThing):
     Attributes
     ----------
     wins : bool
-        False is default value. The only special_thing will have it set to True.
+        False is default value.
+        The only special_thing will have it set to True.
     """
 
-    def __init__(self, name, description, use_description, status_description, kills=Deadliness.not_deadly, wins=False):
-        super().__init__(name, description, use_description, [status_description], kills)
+    def __init__(self, name, description, use_description,
+                 status_description, kills=Deadliness.not_deadly, wins=False):
+        super().__init__(name, description, use_description,
+                         [status_description], kills)
         self.__wins = wins
 
     @property

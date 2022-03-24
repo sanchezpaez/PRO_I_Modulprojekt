@@ -55,7 +55,10 @@ class Room:
 
     @north_room.setter
     def north_room(self, new_room):
-        """Setter for self.__north_room, replaces current Room for another Room object."""
+        """
+        Setter for self.__north_room,
+        replaces current Room for another Room object.
+        """
         self.__north_room = new_room
 
     @property
@@ -65,7 +68,10 @@ class Room:
 
     @south_room.setter
     def south_room(self, new_room):
-        """Setter for self.__south_room, replaces current Room for another Room object."""
+        """
+        Setter for self.__south_room,
+        replaces current Room for another Room object.
+        """
         self.__south_room = new_room
 
     @property
@@ -75,7 +81,10 @@ class Room:
 
     @east_room.setter
     def east_room(self, new_room):
-        """Setter for self.__east_room, replaces current Room for another Room object."""
+        """
+        Setter for self.__east_room,
+        replaces current Room for another Room object.
+        """
         self.__east_room = new_room
 
     @property
@@ -85,18 +94,23 @@ class Room:
 
     @west_room.setter
     def west_room(self, new_room):
-        """Setter for self.__west_room, replaces current Room for another Room object."""
+        """
+        Setter for self.__west_room,
+        replaces current Room for another Room object.
+        """
         self.__west_room = new_room
 
     def leave_room(self):
         """
-        Print possible_rooms_names, as for user's input and check if Room is accessible.
+        Print possible_rooms_names, ask for user's input
+         and check if Room is accessible.
         If Room is accessible:
             self.get_room_from_room_name()
         Else:
             print warning message(str).
         """
         print("Where do you want to go?")
+        print()
         if self.possible_rooms_names():
             for room in self.possible_rooms_names():
                 print(room)
@@ -119,7 +133,8 @@ class Room:
             return None.
         """
         if room_name in self.possible_rooms_names():
-            room = [room for room in self.possible_rooms() if room_name == room.name][0]
+            room = [room for room in self.possible_rooms()
+                    if room_name == room.name][0]
             return room
         else:
             print("Is that even a place?")
@@ -180,7 +195,8 @@ class Room:
 
 class SpecialRoom(Room):
     """
-    A class to represent the Room that contains the winning condition(special_thing).
+    A class to represent the Room that contains
+     the winning condition(special_thing).
     Attributes
     ----------
     name : str

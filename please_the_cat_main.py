@@ -6,8 +6,11 @@
 
 from framework.framework_game import Game
 
-from please_the_cat_rooms import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, \
+from please_the_cat_rooms import kitchen, bathroom, bedroom,\
+    living_room, garden, cellar, hall, hof, \
     neighbours
+
+# Game created using the classes of the attached folder 'framework'
 
 if __name__ == '__main__':
     kitchen.east_room = bathroom
@@ -29,7 +32,9 @@ if __name__ == '__main__':
     hof.south_room = garden
     hof.east_room = living_room
     neighbours.west_room = bathroom
-    game = Game(name="Please the Cat", description="You love your cat, but she is very annoying when she doesn't find "
-                                                   "her toy. \nFind it and she will stop meowing.",
+    game = Game(name="Please the Cat",
+                description="You love your cat, but she is very annoying "
+                            "when she doesn't find her toy. \n"
+                            "Find it and she will stop meowing.",
                 starting_room=kitchen)
     game.play()

@@ -1,0 +1,1083 @@
+
+What is your name?
+>Sandra
+Welcome to 'Please the Cat', Sandra!
+How would you describe yourself?
+>stressed
+'stressed', I'll remember that.
+Choose a number from 1 to 5?
+>3
+Ok. You will start the game with 3 lives.
+You love your cat, but she is very annoying when she doesn't find her toy. 
+Find it and she will stop meowing.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>inspect
+What do you want to inspect?
+knife
+mayo
+table
+>mayo
+It doesn't look really fresh, but you're starving...
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+What do you want to grab?
+knife
+mayo
+table
+>table
+You cannot grab this.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+What do you want to grab?
+knife
+mayo
+table
+>mayo
+You grabbed the mayo.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+living-room
+bedroom
+bathroom
+garden
+>bedroom
+You move to the bedroom.
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>check inventory
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+What do you want to grab?
+blanket
+bubble-maker
+cat
+>cat
+You cannot grab this.
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+What do you want to grab?
+blanket
+bubble-maker
+cat
+>bubble-maker
+You grabbed the bubble-maker.
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+kitchen
+>kitchen
+You move to the kitchen.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+living-room
+bedroom
+bathroom
+garden
+>bathroom
+You move to the bathroom.
+
+
+It smells kind of nice here... mixed with cat pee. Ok, maybe not so nice. 
+It's probably a good idea to start washing your hands, since you're in the bathroom.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>inspect
+What do you want to inspect?
+hairbands
+phone
+litter_box
+>hairbands
+A bunch of colourful hairbands.
+
+
+It smells kind of nice here... mixed with cat pee. Ok, maybe not so nice. 
+It's probably a good idea to start washing your hands, since you're in the bathroom.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+cellar
+neighbours'
+kitchen
+>neighbours'
+You move to the neighbours'.
+
+
+This is your neighbours' place.
+They are used to your cat visiting, so the door is unlocked.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+What do you want to grab?
+rug
+picture
+>rug
+You grabbed the rug.
+
+
+This is your neighbours' place.
+They are used to your cat visiting, so the door is unlocked.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+What do you want to use?
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+bubble-maker - It's full.
+You can use this 3 more time(s).
+rug - You can use this as many times as you want.
+>bubble-maker
+BLUB...BLUBB...BLUB...Yay!
+That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).
+You have 2 lives left.
+Now there's only half of it left.
+You can use this 2 more time(s).
+
+
+This is your neighbours' place.
+They are used to your cat visiting, so the door is unlocked.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>exit game
+BYE! See you next time :)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % python please_the_cat_main.py
+What is your name?
+>Sandra
+Welcome to 'Please the Cat', Sandra!
+How would you describe yourself?
+>temperamental 
+'temperamental ', I'll remember that.
+Choose a number from 1 to 5?
+>2
+Ok. You will start the game with 2 lives.
+You love your cat, but she is very annoying when she doesn't find her toy. 
+Find it and she will stop meowing.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>exit game
+
+BYE! See you next time :)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % python please_the_cat_main.py
+What is your name?
+>s
+
+Welcome to 'Please the Cat', s!
+
+How would you describe yourself?
+>s
+
+'s', I'll remember that.
+Choose a number from 1 to 5?
+>2
+Ok. You will start the game with 2 lives.
+You love your cat, but she is very annoying when she doesn't find her toy. 
+Find it and she will stop meowing.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>inspect
+
+What do you want to inspect?
+
+knife
+mayo
+table
+>table
+
+This looks heavy.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>grab
+
+What do you want to grab?
+
+knife
+mayo
+table
+>mayo
+You grabbed the mayo.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+>mayo
+there you go, just a spoon full of...mayonnaise...
+That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).
+You have 1 lives left.
+Expired.
+You can use this 1 more time(s).
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>leave room
+Where do you want to go?
+
+living-room
+bedroom
+bathroom
+garden
+>living-room
+You move to the living-room.
+
+
+You are in the living-room. There are toys everywhere. You can also see some books on the shelf.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>check inventory
+
+This stuff is in your pockets:
+mayo - Expired.
+You can use this 1 more time(s).
+
+
+You are in the living-room. There are toys everywhere. You can also see some books on the shelf.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>leave room
+Where do you want to go?
+
+kitchen
+cellar
+Hof
+>cellar
+You move to the cellar.
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>grab
+
+What do you want to grab?
+
+Pair of shoes
+inflatable boat
+donation bags
+>inflatable boat
+You grabbed the inflatable boat.
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+
+
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - Expired.
+You can use this 1 more time(s).
+inflatable boat - This looks a bit fragile, be careful.
+You can use this 1 more time(s).
+>mayo
+there you go, just a spoon full of...mayonnaise...
+You're dead, s!  Be s-er next time!  GAME OVER.
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % python please_the_cat_main.py
+What is your name?
+>s
+
+Welcome to 'Please the Cat', s!
+mau
+How would you describe yourself?
+>mau
+
+'maumau', I'll remember that.
+
+Choose a number from 1 to 5?
+>2
+
+Ok. You will start the game with 2 lives.
+You love your cat, but she is very annoying when she doesn't find her toy. 
+Find it and she will stop meowing.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+knife
+mayo
+table
+>mayo
+
+You grabbed the mayo.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+living-room
+bedroom
+bathroom
+garden
+>bedroom
+You move to the bedroom.
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>inspect
+
+What do you want to inspect?
+
+blanket
+bubble-maker
+cat
+>cat
+
+That is a catosaur!
+
+
+You are in the bedroom. There is a pile of clothes on the chair. The wardrobe is slightly open.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+kitchen
+>kitchen
+You move to the kitchen.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+knife
+table
+toy
+>toy
+
+You grabbed the toy.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+toy - Old and dirty, just how she likes it.
+You can use this 1 more time(s).
+>toy
+Mmm...it feels like home.
+Congrats, s -- you definitely are maumau!
+You win the game :)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework_game.py
+framework_game.py:0:1: E902 FileNotFoundError: [Errno 2] No such file or directory: 'framework_game.py'
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_main.py
+please_the_cat_main.py:9:80: E501 line too long (102 > 79 characters)
+please_the_cat_main.py:34:80: E501 line too long (119 > 79 characters)
+please_the_cat_main.py:35:80: E501 line too long (99 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_main.py 
+please_the_cat_main.py:36:80: E501 line too long (96 > 79 characters)
+please_the_cat_main.py:37:52: E127 continuation line over-indented for visual indent
+please_the_cat_main.py:37:80: E501 line too long (99 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_main.py 
+please_the_cat_main.py:37:80: E501 line too long (98 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_main.py 
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.py
+please_the_cat_rooms.py:7:80: E501 line too long (96 > 79 characters)
+please_the_cat_rooms.py:8:80: E501 line too long (100 > 79 characters)
+please_the_cat_rooms.py:9:80: E501 line too long (122 > 79 characters)
+please_the_cat_rooms.py:14:80: E501 line too long (111 > 79 characters)
+please_the_cat_rooms.py:15:80: E501 line too long (133 > 79 characters)
+please_the_cat_rooms.py:16:80: E501 line too long (149 > 79 characters)
+please_the_cat_rooms.py:24:80: E501 line too long (94 > 79 characters)
+please_the_cat_rooms.py:25:80: E501 line too long (103 > 79 characters)
+please_the_cat_rooms.py:33:80: E501 line too long (92 > 79 characters)
+please_the_cat_rooms.py:41:80: E501 line too long (89 > 79 characters)
+please_the_cat_rooms.py:49:80: E501 line too long (123 > 79 characters)
+please_the_cat_rooms.py:57:80: E501 line too long (185 > 79 characters)
+please_the_cat_rooms.py:65:80: E501 line too long (97 > 79 characters)
+please_the_cat_rooms.py:73:80: E501 line too long (115 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.p 
+please_the_cat_rooms.p:0:1: E902 FileNotFoundError: [Errno 2] No such file or directory: 'please_the_cat_rooms.p'
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.py
+please_the_cat_rooms.py:16:80: E501 line too long (89 > 79 characters)
+please_the_cat_rooms.py:17:80: E501 line too long (106 > 79 characters)
+please_the_cat_rooms.py:18:80: E501 line too long (94 > 79 characters)
+please_the_cat_rooms.py:19:80: E501 line too long (80 > 79 characters)
+please_the_cat_rooms.py:46:80: E501 line too long (89 > 79 characters)
+please_the_cat_rooms.py:64:80: E501 line too long (129 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.py
+please_the_cat_rooms.py:18:80: E501 line too long (86 > 79 characters)
+please_the_cat_rooms.py:19:80: E501 line too long (94 > 79 characters)
+please_the_cat_rooms.py:20:80: E501 line too long (80 > 79 characters)
+please_the_cat_rooms.py:66:80: E501 line too long (86 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.py
+please_the_cat_rooms.py:22:80: E501 line too long (80 > 79 characters)
+please_the_cat_rooms.py:68:80: E501 line too long (86 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_rooms.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_things.py
+please_the_cat_things.py:6:80: E501 line too long (105 > 79 characters)
+please_the_cat_things.py:10:80: E501 line too long (81 > 79 characters)
+please_the_cat_things.py:28:80: E501 line too long (103 > 79 characters)
+please_the_cat_things.py:33:80: E501 line too long (98 > 79 characters)
+please_the_cat_things.py:52:80: E501 line too long (87 > 79 characters)
+please_the_cat_things.py:53:80: E501 line too long (99 > 79 characters)
+please_the_cat_things.py:65:80: E501 line too long (124 > 79 characters)
+please_the_cat_things.py:66:80: E501 line too long (121 > 79 characters)
+please_the_cat_things.py:71:80: E501 line too long (94 > 79 characters)
+please_the_cat_things.py:73:80: E501 line too long (111 > 79 characters)
+please_the_cat_things.py:80:80: E501 line too long (105 > 79 characters)
+please_the_cat_things.py:91:80: E501 line too long (93 > 79 characters)
+please_the_cat_things.py:93:80: E501 line too long (100 > 79 characters)
+please_the_cat_things.py:111:80: E501 line too long (116 > 79 characters)
+please_the_cat_things.py:113:80: E501 line too long (98 > 79 characters)
+please_the_cat_things.py:118:80: E501 line too long (124 > 79 characters)
+please_the_cat_things.py:132:80: E501 line too long (80 > 79 characters)
+please_the_cat_things.py:143:80: E501 line too long (88 > 79 characters)
+please_the_cat_things.py:145:80: E501 line too long (88 > 79 characters)
+please_the_cat_things.py:156:80: E501 line too long (118 > 79 characters)
+please_the_cat_things.py:158:80: E501 line too long (93 > 79 characters)
+please_the_cat_things.py:164:80: E501 line too long (81 > 79 characters)
+please_the_cat_things.py:169:80: E501 line too long (102 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_things.py
+please_the_cat_things.py:6:80: E501 line too long (105 > 79 characters)
+please_the_cat_things.py:10:80: E501 line too long (81 > 79 characters)
+please_the_cat_things.py:34:80: E501 line too long (98 > 79 characters)
+please_the_cat_things.py:69:80: E501 line too long (82 > 79 characters)
+please_the_cat_things.py:71:80: E501 line too long (82 > 79 characters)
+please_the_cat_things.py:145:80: E501 line too long (80 > 79 characters)
+please_the_cat_things.py:156:80: E501 line too long (88 > 79 characters)
+please_the_cat_things.py:158:80: E501 line too long (88 > 79 characters)
+please_the_cat_things.py:172:80: E501 line too long (93 > 79 characters)
+please_the_cat_things.py:178:80: E501 line too long (81 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_things.py
+please_the_cat_things.py:72:80: E501 line too long (82 > 79 characters)
+please_the_cat_things.py:74:80: E501 line too long (82 > 79 characters)
+please_the_cat_things.py:148:80: E501 line too long (80 > 79 characters)
+please_the_cat_things.py:177:80: E501 line too long (93 > 79 characters)
+please_the_cat_things.py:183:80: E501 line too long (81 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 please_the_cat_things.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+framework/framework_game.py:30:80: E501 line too long (117 > 79 characters)
+framework/framework_game.py:81:80: E501 line too long (110 > 79 characters)
+framework/framework_game.py:102:80: E501 line too long (119 > 79 characters)
+framework/framework_game.py:105:80: E501 line too long (98 > 79 characters)
+framework/framework_game.py:114:80: E501 line too long (80 > 79 characters)
+framework/framework_game.py:123:80: E501 line too long (101 > 79 characters)
+framework/framework_game.py:166:80: E501 line too long (98 > 79 characters)
+framework/framework_game.py:188:80: E501 line too long (95 > 79 characters)
+framework/framework_game.py:212:80: E501 line too long (98 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+framework/framework_game.py:118:80: E501 line too long (80 > 79 characters)
+framework/framework_game.py:171:80: E501 line too long (98 > 79 characters)
+framework/framework_game.py:193:80: E501 line too long (95 > 79 characters)
+framework/framework_game.py:217:80: E501 line too long (98 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_player.py
+framework/framework_player.py:6:80: E501 line too long (80 > 79 characters)
+framework/framework_player.py:88:80: E501 line too long (106 > 79 characters)
+framework/framework_player.py:89:80: E501 line too long (106 > 79 characters)
+framework/framework_player.py:91:80: E501 line too long (108 > 79 characters)
+framework/framework_player.py:94:80: E501 line too long (104 > 79 characters)
+framework/framework_player.py:97:80: E501 line too long (120 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_room.py
+framework/framework_room.py:58:80: E501 line too long (90 > 79 characters)
+framework/framework_room.py:68:80: E501 line too long (90 > 79 characters)
+framework/framework_room.py:78:80: E501 line too long (89 > 79 characters)
+framework/framework_room.py:88:80: E501 line too long (89 > 79 characters)
+framework/framework_room.py:93:80: E501 line too long (88 > 79 characters)
+framework/framework_room.py:123:80: E501 line too long (88 > 79 characters)
+framework/framework_room.py:184:80: E501 line too long (85 > 79 characters)
+framework/framework_room.py:199:80: E501 line too long (85 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_tests.py
+framework/framework_tests.py:27:80: E501 line too long (87 > 79 characters)
+framework/framework_tests.py:44:80: E501 line too long (95 > 79 characters)
+framework/framework_tests.py:65:80: E501 line too long (90 > 79 characters)
+framework/framework_tests.py:70:80: E501 line too long (95 > 79 characters)
+framework/framework_tests.py:76:80: E501 line too long (98 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_game.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_thing.py
+framework/framework_thing.py:23:80: E501 line too long (81 > 79 characters)
+framework/framework_thing.py:58:80: E501 line too long (83 > 79 characters)
+framework/framework_thing.py:94:80: E501 line too long (90 > 79 characters)
+framework/framework_thing.py:126:80: E501 line too long (109 > 79 characters)
+framework/framework_thing.py:148:80: E501 line too long (109 > 79 characters)
+framework/framework_thing.py:159:80: E501 line too long (80 > 79 characters)
+framework/framework_thing.py:162:80: E501 line too long (120 > 79 characters)
+framework/framework_thing.py:163:80: E501 line too long (89 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_thing.py
+framework/framework_thing.py:23:80: E501 line too long (81 > 79 characters)
+framework/framework_thing.py:58:80: E501 line too long (83 > 79 characters)
+framework/framework_thing.py:150:80: E501 line too long (109 > 79 characters)
+framework/framework_thing.py:161:80: E501 line too long (80 > 79 characters)
+framework/framework_thing.py:166:80: E501 line too long (89 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_thing.py
+framework/framework_thing.py:164:80: E501 line too long (80 > 79 characters)
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % flake8 framework/framework_thing.py
+(base) sandrasanchezp@MBP-de-SANDRA modulprojekt % python please_the_cat_main.py
+What is your name?
+>Sandra
+
+Welcome to 'Please the Cat', Sandra!
+
+How would you describe yourself?
+>temperamental
+
+'temperamental', I'll remember that.
+
+Choose a number from 1 to 5?
+>3
+
+Ok. You will start the game with 3 lives.
+
+You love your cat, but she is very annoying when she doesn't find her toy. 
+Find it and she will stop meowing.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+knife
+mayo
+table
+>mayo
+
+You grabbed the mayo.
+
+
+You are in the kitchen. One would think there is something here to please that cat of yours. Check every item carefully, things are not what they seem...
+
+There is some mayonnaise and a knife on the table.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+living-room
+bedroom
+bathroom
+garden
+>garden
+You move to the garden.
+
+
+You are in the garden.The autumn leaves have been there since October, you should find the time to tidy up a bit this space.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>inspect
+
+What do you want to inspect?
+
+shovel
+flower seeds
+swing
+>d
+
+Are you sure that is what you are trying to say?
+
+
+You are in the garden.The autumn leaves have been there since October, you should find the time to tidy up a bit this space.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>inspect
+
+What do you want to inspect?
+
+shovel
+flower seeds
+swing
+>flower seeds
+
+Plant at the end of March, water and wait for the miracle to happen.
+
+
+You are in the garden.The autumn leaves have been there since October, you should find the time to tidy up a bit this space.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+shovel
+flower seeds
+swing
+>flower seeds
+
+You grabbed the flower seeds.
+
+
+You are in the garden.The autumn leaves have been there since October, you should find the time to tidy up a bit this space.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+flower seeds - Once you plant them they will be gone.
+You can use this 1 more time(s).
+>flower seeds
+You planted the seeds, well done! But wait, are those flowers not poisonous?
+
+That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).
+
+You have 2 lives left.
+
+There is no flower seeds left.
+
+
+You are in the garden.The autumn leaves have been there since October, you should find the time to tidy up a bit this space.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+Hof
+kitchen
+>Hof
+You move to the Hof.
+
+
+You are at the Hof. 
+You can see the paper, glass and general rubbish containers. The plastic one is missing (again).
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>check inventory
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+
+
+You are at the Hof. 
+You can see the paper, glass and general rubbish containers. The plastic one is missing (again).
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+garden
+living-room
+>living-room
+You move to the living-room.
+
+
+You are in the living-room. There are toys everywhere. You can also see some books on the shelf.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+book
+friskies
+window
+>book
+
+You grabbed the book.
+
+
+You are in the living-room. There are toys everywhere. You can also see some books on the shelf.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+kitchen
+cellar
+Hof
+>cellar
+You move to the cellar.
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+book - You can use this as many times as you want.
+>grab 
+Are you sure that is what you are trying to say?
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+pair of shoes
+inflatable boat
+donation bags
+>pair of shoes
+
+You grabbed the pair of shoes.
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+book - You can use this as many times as you want.
+pair of shoes - You can use this as many times as you want.
+>pair of shoes
+Comfy and stylish, perfect for you.
+
+You can use this as many times as you want.
+
+
+
+You are in the cellar.A dark and dusty room full of crap, aka spider paradise. 
+You see some bags readily packed to donate to Ukrainian refugees, a pair of shoes and an inflatable boat.
+
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+bathroom
+living-room
+>bathroom
+You move to the bathroom.
+
+
+It smells kind of nice here... mixed with cat pee. Ok, maybe not so nice. 
+It's probably a good idea to start washing your hands, since you're in the bathroom.
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>leave room
+Where do you want to go?
+
+cellar
+neighbours'
+kitchen
+>kitchen
+You move to the kitchen.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab
+
+What do you want to grab?
+
+knife
+table
+toy
+>table
+You cannot grab this.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>grab 
+
+What do you want to grab?
+
+knife
+table
+toy
+>toy
+
+You grabbed the toy.
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - You can still have a few fries with it.
+You can use this 2 more time(s).
+book - You can use this as many times as you want.
+pair of shoes - You can use this as many times as you want.
+toy - Old and dirty, just how she likes it.
+You can use this 1 more time(s).
+>mayo
+there you go, just a spoon full of...mayonnaise...
+
+That was a near-to-death experience. But what doesn't kill you, makes you stronger (kind of).
+
+You have 1 lives left.
+
+Expired.
+You can use this 1 more time(s).
+
+
+
+You are in the kitchen again. Wait a minute...Somebody has been here. There is something white and dirty under the table...
+
+What do you want to do?
+
+inspect  grab  use  leave room  check inventory exit game
+>use
+
+What do you want to use?
+
+This stuff is in your pockets:
+mayo - Expired.
+You can use this 1 more time(s).
+book - You can use this as many times as you want.
+pair of shoes - You can use this as many times as you want.
+toy - Old and dirty, just how she likes it.
+You can use this 1 more time(s).
+>toy
+Mmm...it feels like home.
+
+Congrats, Sandra -- you definitely are temperamental!
+You win the game :)

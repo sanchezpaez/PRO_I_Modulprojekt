@@ -12,7 +12,7 @@ The directory contains:
 -A specific game("Please the Cat").
 -An example of how the game can be played.
 -A UML diagram that explains relationships between objects in the framework.
--A tests.py file to run tests on all the files, and which shows and example of a simple new game.
+-A tests.py file to run tests on all the files, and which shows an example of a simple new game.
 
 
 2. Prerequisites
@@ -30,35 +30,18 @@ Install the version of Anaconda compatible with your operative system (Windows, 
 
 3. How to use
 -------
-
-### If you want to use the framework to make a new game
-
-The framework creates all the necessary classes for the game: Game, Room, Player Thing and all the different subclasses of Thing.
-
-For the user to be able to make a new game the following steps need to be taken:
-
-1) Download and save the framework directory.
-2) Create new .py file and import:
-  from framework.game import Game
-  from framework.room import Room, SpecialRoom
-  from framework.thing import InfiniteUseThing, SingleUseThing
-  from framework.player import Player
-
-The tests.py file shows an example of a new implementation: the new variables for Game, Room and Thing instances (within the rooms) need to be created. The player will be generated within the game.
-
-
 ### If you want to play 'Please the Cat Game'
 
-* Download and save the folder game_project in your computer wherever you wish. Then from Terminal (CMD for Windows) set your working directory to that of your folder (for example: cd Desktop/please_the_cat_game).
+* Download and save the folder modulprojekt in your computer wherever you wish. Then from Terminal (look for 'Terminal' on Spotlight), or CMD for Windows,  set your working directory to that of your folder (for example: cd Desktop/modulprojekt).
 
 ```bash
-cd where_you_put_the_downloaded_folder/game_project
+cd where_you_saved_the_downloaded_folder/modulprojekt
 ```
 
-* Once you are in the right working directory, type python (or python3) main.py and hit 'enter'.
+* Once you are in the right working directory, type the following ('python' may be 'python3' on your computer):
 
 ```bash
-python main.py
+python please_the_cat_main.py
 ```
 
 You should see on your screen: 
@@ -66,6 +49,31 @@ You should see on your screen:
 >
 
 You are ready to play!
+
+
+### If you want to use the framework to make a new game
+
+The framework contains all the necessary classes to create and run your game.
+For the user to be able to make a new game the following steps need to be taken:
+
+1) Download and save the framework directory.
+2) Create new .py file and import:
+  ```
+  from framework.game import Game
+  from framework.room import Room, SpecialRoom
+  from framework.thing import InfiniteUseThing, SingleUseThing
+  from framework.player import Player
+  ```
+3) Add/create `Thing`s & `Room`s as in the example game (`please_the_cat.py`)
+4) Finalize the rooms by setting their connections like this:
+  ```python
+  kitchen = Room(...)
+  hallway = Room(...)
+  kitchen.east_room = hallway
+  hallway.west_room = kitchen
+  ``` 
+5) Init and start your game following the example (`please_the_cat.py`).  
+The tests.py file shows an example of a new implementation: the new variables for Game, Room and Thing instances (within the rooms) need to be created. The player will be generated within the game.
 
 
 4. How to contribute

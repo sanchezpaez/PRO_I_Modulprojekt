@@ -24,7 +24,8 @@ keys = SingleUseThing(
 hallway = SpecialRoom(
     name="hallway",
     description="Entrance to your flat.  You're locked-in!",
-    second_description="Entrance to your flat.  Looks like you can unlock the door...",
+    second_description="Entrance to your flat.  "
+                       "Looks like you can unlock the door...",
     things=[
         wallet,
     ],
@@ -41,7 +42,8 @@ balcony.west_room = hallway
 
 leave_the_flat = Game(
     name="Leave the flat",
-    description="You gotta get outta here - cabin fever is setting in.  Leave your flat asap.",
+    description="You gotta get outta here - cabin fever"
+                " is setting in.  Leave your flat asap.",
     starting_room=hallway,
 )
 
@@ -49,7 +51,7 @@ leave_the_flat = Game(
 def test_game(monkeypatch, capsys):
     """
     Test to make sure the program does what it is supposed to do.
-    We create new variables to test.
+    We create new variables to test and functions to simulate input.
     """
 
     def simulate_input(text: str):
@@ -61,12 +63,19 @@ def test_game(monkeypatch, capsys):
         return capsys.readouterr().out
 
     assert wallet.get_status() == "You can use this as many times as you want."
-    assert keys.get_status() == "Ready to unlock stuff.\nYou can use this 1 more time(s)."
+    assert isinstance(wallet, InfiniteUseThing)
+    assert keys.get_status() == "Ready to unlock stuff.\n" \
+                                "You can use this 1 more time(s)."
+    assert isinstance(keys, SingleUseThing)
 
-    simulate_input("foo")
+    simulate_input("123")
     assert hallway.leave_room() is None
-    assert get_printed_output() == "Where do you want to go?\nbalcony\nIs that even a place?\n"
+    assert get_printed_output() == "Where do you want to go?" \
+                                   "\nbalcony\nIs that even a place?\n"
 
     simulate_input("balcony")
+    assert isinstance(hallway, SpecialRoom)
+    assert isinstance(balcony, Room)
     assert hallway.leave_room() == balcony
-    assert get_printed_output() == "Where do you want to go?\nbalcony\nYou move to the balcony.\n"
+    assert get_printed_output() == "Where do you want to go?" \
+                                   "\nbalcony\nYou move to the balcony.\n"
