@@ -1,0 +1,228 @@
+# -*- coding: utf-8 -*-
+# Modulprojekt PRO1
+# Authorin: Sandra Sánchez
+# Datum: 16.02.2022
+
+import sys
+import time
+
+from framework.framework_player import Player
+from framework.framework_thing import GrabbableThing
+
+
+class Game:
+    """
+    A class to represent the game.
+    Attributes
+    ----------
+    name : str
+        Name of the game
+    description : str
+        Explains aim of the game
+    starting_room : Room
+        starting location to __init__ game
+    """
+
+    def __init__(self, name, description, starting_room):
+        self.__name = name
+        self.__description = description
+        self.__current_room = starting_room
+        self.__player = None  # The game starts without a player,
+        # it will be generated later on through user's input.
+
+    @property
+    def name(self):
+        """Getter for self.__name, returns a str."""
+        return self.__name
+
+    @property
+    def description(self):
+        """Getter for self.__description, returns a str."""
+        return self.__description
+
+    @property
+    def current_room(self):
+        """Getter for self.__current_room, returns an object of class Room."""
+        return self.__current_room
+
+    @property
+    def player(self):
+        """Getter for self.__player, returns an object of class Player."""
+        return self.__player
+
+    def generate_player_features(self):
+        """
+        Ask from user's input(str) to generate player's attributes.
+        :return:
+            attributes name, description, lives(list of str).
+        """
+        print("What is your name?")
+        name = input('>')
+        print()
+        time.sleep(1)
+        print(f"Welcome to '{self.__name}', {name}!")
+        time.sleep(1)
+        print()
+        print("How would you describe yourself?")
+        description = input('>')
+        print()
+        time.sleep(1)
+        print(f"'{description}', I'll remember that.")
+        print()
+        lives = self.choose_number()
+        time.sleep(1)
+        print()
+        print(f"Ok. You will start the game with {lives} lives.")
+        print()
+        time.sleep(1)
+        return name, description, lives
+
+    def choose_number(self):
+        """
+        Take user's input (number in specified range) and return
+        integer, that will become the player's lives.
+        :return:
+            number(int).
+        """
+        number = 0
+        print("Choose a number from 1 to 5?")
+        chosen_number = int(input('>').strip())
+        if chosen_number in range(1, 6):
+            number = chosen_number
+        else:
+            print("Wrong number")
+            self.choose_number()
+        return number
+
+    @staticmethod
+    def print_warning():
+        """Print message(str) when input is unexpected."""
+        print("Are you sure that is what you are trying to say?")
+
+    def play(self):
+        """
+        Start game engine and call other methods depending on input,
+         until condition is met (either player's lives == 0
+                 or player uses special object).
+        """
+        self.__player = Player(*self.generate_player_features())
+        # Pass on features given by user
+        time.sleep(1)
+        print(self.__description)
+        while True:
+            print()
+            print()
+            print(self.__current_room.description)
+            print("\nWhat do you want to do?")
+            time.sleep(1)
+            print("\ninspect  grab  use  leave room"
+                  "  check inventory exit game")
+            response = input(">").strip()
+            time.sleep(1)
+            if response == "exit game":
+                print()
+                self.exit_game()
+            elif response == "inspect":
+                print()
+                self.inspect()
+            elif response == "grab":  # If thing is grabbable,
+                # move from room's to player's inventory
+                print()
+                thing_to_grab = self.ask_for_thing_to_grab()
+                if isinstance(thing_to_grab, GrabbableThing):
+                    self.__player.grab(thing_to_grab)
+                    self.__current_room.remove(thing_to_grab)
+            elif response == "use":
+                print()
+                if self.__player.inventory:
+                    thing_to_use = self.ask_for_thing_to_use()
+                    if isinstance(thing_to_use, GrabbableThing):
+                        message = self.__player.use(thing_to_use)
+                        if message:  # If player wins or loses, end the game
+                            print(message)
+                            sys.exit()
+
+                else:
+                    print("You have nothing to use in your inventory.")
+                    print("Try grabbing something first.")
+            elif response == "leave room":
+                new_room = self.__current_room.leave_room()
+                if new_room:
+                    self.__current_room = new_room
+                else:
+                    self.print_warning()
+            elif response == "check inventory":
+                print()
+                self.__player.print_inventory()
+            else:
+                self.print_warning()
+
+    def ask_for_thing_to_grab(self):
+        """
+        Offer available options and  take input.
+        :return:
+             Either Thing or None.
+        """
+        print("What do you want to grab?")
+        print()
+        time.sleep(1)
+        self.__current_room.print_things()
+        user_input = input(">")
+        if user_input in self.__current_room.get_things_names():
+            thing = [thing for thing in self.__current_room.things
+                     if user_input == thing.name][0]
+            if thing.is_grabbable:
+                return thing
+            else:
+                print()
+                time.sleep(1)
+                print("You cannot grab this.")
+                return None
+        else:
+            self.print_warning()
+            return None
+
+    def ask_for_thing_to_use(self):
+        """
+        Offer available options and  take input.
+        :return:
+             Either Thing or None.
+        """
+        print("What do you want to use?")
+        print()
+        time.sleep(1)
+        self.__player.print_inventory()
+        user_input = input(">").strip()
+        if user_input in self.__player.get_inventory_names():
+            thing = [thing for thing in self.__player.inventory
+                     if user_input == thing.name][0]
+            return thing
+        else:
+            print()
+            time.sleep(1)
+            self.print_warning()
+            return None
+
+    def exit_game(self):
+        """Call self._exit with goodbye message(str)"""
+        print('BYE! See you next time :)')
+        sys.exit()
+
+    def inspect(self):
+        """
+        Offer available options, take input.
+        :return:
+            print thing description (str).
+        """
+        print("What do you want to inspect?")
+        print()
+        time.sleep(1)
+        self.__current_room.print_things()
+        user_input = input(">").strip()
+        print()
+        if user_input in self.__current_room.get_things_names():
+            thing = [thing for thing in self.__current_room.things
+                     if user_input == thing.name][0]
+            print(thing.description)
+        else:
+            self.print_warning()
