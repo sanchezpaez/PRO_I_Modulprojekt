@@ -27,7 +27,7 @@ class Room:
     def __init__(self, name, description, things):
         self.__name = name
         self.__things = things
-        self.__description = description
+        self._description = description
         self.__north_room = None
         self.__south_room = None
         self.__east_room = None
@@ -35,46 +35,57 @@ class Room:
 
     @property
     def name(self):
+        """Getter for self.__name, returns a str."""
         return self.__name
 
     @property
     def things(self):
+        """Getter for self.__things, returns a list of Thing objects."""
         return self.__things
 
     @property
     def description(self):
-        return self.__description
+        """Getter for self.__description, returns a str."""
+        return self._description
 
     @property
     def north_room(self):
+        """Getter for self.__north_room, returns a Room object."""
         return self.__north_room
 
     @north_room.setter
     def north_room(self, new_room):
+        """Setter for self.__north_room, replaces current Room for another Room object."""
         self.__north_room = new_room
 
     @property
     def south_room(self):
+        """Getter for self.__south_room, returns a Room object."""
         return self.__south_room
 
     @south_room.setter
     def south_room(self, new_room):
+        """Setter for self.__south_room, replaces current Room for another Room object."""
         self.__south_room = new_room
 
     @property
     def east_room(self):
+        """Getter for self.__east_room, returns a Room object."""
         return self.__east_room
 
     @east_room.setter
     def east_room(self, new_room):
+        """Setter for self.__east_room, replaces current Room for another Room object."""
         self.__east_room = new_room
 
     @property
     def west_room(self):
+        """Getter for self.__west_room, returns a Room object."""
         return self.__west_room
 
     @west_room.setter
     def west_room(self, new_room):
+        """Setter for self.__west_room, replaces current Room for another Room object."""
         self.__west_room = new_room
 
     def leave_room(self):
@@ -186,7 +197,7 @@ class SpecialRoom(Room):
 
     def __init__(self, name, description, second_description, things, special_thing):
         super().__init__(name, description, things)
-        self.__second_description = second_description
+        self._second_description = second_description
         self.__special_thing = special_thing
 
     def leave_room(self):
@@ -197,6 +208,6 @@ class SpecialRoom(Room):
         :rtype: Room
         """
         new_room = super().leave_room()
-        self.__description = self.__second_description
+        self._description = self._second_description
         self.things.append(self.__special_thing)
         return new_room

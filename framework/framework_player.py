@@ -3,7 +3,7 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-from framework.thing import FiniteUseThing, SingleUseThing, Deadliness
+from framework.framework_thing import FiniteUseThing, SingleUseThing, Deadliness
 
 
 class Player:
@@ -27,22 +27,27 @@ class Player:
 
     @property
     def name(self):
+        """Getter for self.__name, returns a str."""
         return self.__name
 
     @property
     def description(self):
+        """Getter for self.__description, returns a str."""
         return self.__description
 
     @property
     def lives(self):
+        """Getter for self.__lives, returns an int."""
         return self.__lives
 
     @lives.setter
     def lives(self, new_lives):
+        """Setter for self.__lives, returns an int."""
         self.__lives = new_lives
 
     @property
     def inventory(self):
+        """Getter for self.__inventory, returns a list of Grabbable objects."""
         return self.__inventory
 
     def get_inventory_names(self):
@@ -101,11 +106,5 @@ class Player:
                 print("You can use this as many times as you want.")
 
     def subtract_lives(self):
-        """
-        Subtract 1 life from player.
-        If self.lives == 0:
-            self.die()
-        else:
-            print message with remaining lives.
-        """
+        """Subtract 1 life from player."""
         self.lives -= 1

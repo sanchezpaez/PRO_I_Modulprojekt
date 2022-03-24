@@ -4,10 +4,9 @@
 # Datum: 16.02.2022
 
 
-from framework.game import Game
-from framework.room import Room, SpecialRoom
-from framework.thing import InfiniteUseThing, SingleUseThing
-from framework.player import Player
+from framework.framework_game import Game
+from framework.framework_room import Room, SpecialRoom
+from framework.framework_thing import InfiniteUseThing, SingleUseThing
 
 wallet = InfiniteUseThing(
     name="wallet",
@@ -48,12 +47,17 @@ leave_the_flat = Game(
 
 
 def test_game(monkeypatch, capsys):
+    """
+    Test to make sure the program does what it is supposed to do.
+    We create new variables to test.
+    """
+
     def simulate_input(text: str):
         """Simulate the user entering a word as input."""
         monkeypatch.setattr('builtins.input', lambda _: text)
 
     def get_printed_output() -> str:
-        """Captures printed output in the terminal."""
+        """Capture printed output in the terminal."""
         return capsys.readouterr().out
 
     assert wallet.get_status() == "You can use this as many times as you want."
@@ -66,4 +70,3 @@ def test_game(monkeypatch, capsys):
     simulate_input("balcony")
     assert hallway.leave_room() == balcony
     assert get_printed_output() == "Where do you want to go?\nbalcony\nYou move to the balcony.\n"
-

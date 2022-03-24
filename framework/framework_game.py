@@ -6,8 +6,8 @@
 import sys
 import time
 
-from framework.player import Player
-from framework.thing import GrabbableThing
+from framework.framework_player import Player
+from framework.framework_thing import GrabbableThing
 
 
 class Game:
@@ -31,30 +31,34 @@ class Game:
 
     @property
     def name(self):
+        """Getter for self.__name, returns a str."""
         return self.__name
 
     @property
     def description(self):
+        """Getter for self.__description, returns a str."""
         return self.__description
 
     @property
     def current_room(self):
+        """Getter for self.__current_room, returns an object of class Room."""
         return self.__current_room
 
     @property
     def player(self):
+        """Getter for self.__player, returns an object of class Player."""
         return self.__player
 
     def generate_player_features(self):
         """
         Ask from user's input(str) to generate player's attributes.
         :return:
-            attributes name, description, lives(list).
+            attributes name, description, lives(list of str).
         """
         print("What is your name?")
         name = input('>')
         time.sleep(1)
-        print(f"Welcome to '{self.__name}', {name}!")  # Print out personalised message
+        print(f"Welcome to '{self.__name}', {name}!")
         time.sleep(1)
         print("How would you describe yourself?")
         description = input('>')
@@ -62,7 +66,7 @@ class Game:
         print(f"'{description}', I'll remember that.")
         lives = self.choose_number()
         time.sleep(1)
-        print(f"Ok. You will start the game with {lives} lives. If you lose you can choose to play again.")
+        print(f"Ok. You will start the game with {lives} lives.")
         time.sleep(1)
         return name, description, lives
 
@@ -74,7 +78,7 @@ class Game:
         """
         number = 0
         print("Choose a number from 1 to 5?")
-        chosen_number = int(input('>'))
+        chosen_number = int(input('>').strip())
         if chosen_number in range(1, 6):
             number = chosen_number
         else:
@@ -84,9 +88,7 @@ class Game:
 
     @staticmethod
     def print_warning():
-        """
-        Print message(str) when input is unexpected.
-        """
+        """Print message(str) when input is unexpected."""
         print("Are you sure that is what you are trying to say?")
 
     def play(self):
@@ -94,7 +96,7 @@ class Game:
         Start game engine and call other methods depending on input, until condition is met (either player's lives == 0
                  or player uses special object).
         """
-        self.__player = Player(*self.generate_player_features())
+        self.__player = Player(*self.generate_player_features())  # Pass on features given by user
         print(self.__description)
         while True:
             print()
@@ -102,12 +104,12 @@ class Game:
             print(self.__current_room.description)
             print("\nWhat do you want to do?")
             print("\ninspect  grab  use  leave room  check inventory exit game")
-            response = input(">")
+            response = input(">").strip()
             if response == "exit game":
                 self.exit_game()
             elif response == "inspect":
                 self.inspect()
-            elif response == "grab":
+            elif response == "grab":  # If thing is grabbable, move from room's to player's inventory
                 thing_to_grab = self.ask_for_thing_to_grab()
                 if isinstance(thing_to_grab, GrabbableThing):
                     self.__player.grab(thing_to_grab)
@@ -117,10 +119,10 @@ class Game:
                     thing_to_use = self.ask_for_thing_to_use()
                     if isinstance(thing_to_use, GrabbableThing):
                         message = self.__player.use(thing_to_use)
-                        if message:
+                        if message:  # If player wins or loses, end the game
                             print(message)
                             sys.exit()
-                            #self.offer_restart()
+
                 else:
                     print("You have nothing to use in your inventory.")
                     print("Try grabbing something first.")
@@ -163,7 +165,7 @@ class Game:
         """
         print("What do you want to use?")
         self.__player.print_inventory()
-        user_input = input(">")
+        user_input = input(">").strip()
         if user_input in self.__player.get_inventory_names():
             thing = [thing for thing in self.__player.inventory if user_input == thing.name][0]
             return thing
@@ -184,22 +186,12 @@ class Game:
         """
         print("What do you want to inspect?")
         self.__current_room.print_things()
-        user_input = input(">")
+        user_input = input(">").strip()
         if user_input in self.__current_room.get_things_names():
             thing = [thing for thing in self.__current_room.things if user_input == thing.name][0]
             print(thing.description)
         else:
             self.print_warning()
 
-    # def offer_restart(self):
-    #     while True:
-    #         print("Do you want to play again?")
-    #         response = input('>')
-    #         if response == 'yes':
-    #             self.play()
-    #         elif response == 'no':
-    #             self.exit_game()
-    #         else:
-    #             self.print_warning()
 
 

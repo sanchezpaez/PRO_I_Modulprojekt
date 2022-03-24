@@ -3,7 +3,7 @@
 # Authorin: Sandra Sánchez
 # Datum: 16.02.2022
 
-from framework.thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing, Deadliness
+from framework.framework_thing import InfiniteUseThing, SingleUseThing, Thing, FiniteUseThing, Deadliness
 
 pair_of_shoes = InfiniteUseThing(
     name='Pair of shoes',
