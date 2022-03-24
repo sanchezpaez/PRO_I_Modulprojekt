@@ -4,7 +4,7 @@
 # Datum: 16.02.2022
 
 from framework.framework_room import Room, SpecialRoom
-from please_the_cat_game.please_the_cat_things import pair_of_shoes, inflatable_boat, donation_bags, tacky_dishes, \
+from please_the_cat_things import pair_of_shoes, inflatable_boat, donation_bags, tacky_dishes, \
     box_of_chocolates, mailbox, shovel, flower_seeds, swing, book, friskies, window, blanket, cat, \
     bubble_maker, hairbands, phone, litter_box, knife, mayo, table, empty_beer_bottle, bicycle, chestnuts, rug, picture, \
     toy

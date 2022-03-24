@@ -6,7 +6,7 @@
 
 from framework.framework_game import Game
 
-from please_the_cat_game.please_the_cat_rooms import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, \
+from please_the_cat_rooms import kitchen, bathroom, bedroom, living_room, garden, cellar, hall, hof, \
     neighbours
 
 if __name__ == '__main__':
